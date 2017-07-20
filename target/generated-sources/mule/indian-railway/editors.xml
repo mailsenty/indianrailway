@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/indian-railway" prefix="indian-railway">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="IndianRailway" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/indian-railway/abstractIndian-railwayConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="IndianRailway: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/indian-railway-connector-small.png" localId="config" image="icons/theme.classic/indian-railway-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/indian-railway/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Indian-railway configuration properties.">
+      <group id="indian-railwayGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractindian-railwayconnectorgeneric" description="Interact with Indian-railway." icon="icons/theme.classic/indian-railway-connector-small.png" localId="abstractIndian-railwayConnectorGeneric" image="icons/theme.classic/indian-railway-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractIndian-railwayConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/indian-railway/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.indian-railway" caption="IndianRailway" description="" icon="icons/theme.classic/indian-railway-connector-small.png" localId="indian-railway-connector" image="icons/theme.classic/indian-railway-connector-large.png" extends="http://www.mulesoft.org/schema/mule/indian-railway/abstractIndian-railwayConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="indian-railwayConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Indian-railway operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/indian-railway/abstractIndian-railwayConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/indian-railway/check-p-n-r-status" modeLabel="Check p n r status"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/indian-railway/find-station" modeLabel="Find station"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/indian-railway/greet" modeLabel="Greet"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Check P N R Status" icon="icons/theme.classic/indian-railway-connector-small.png" localId="check-p-n-r-status" image="icons/theme.classic/indian-railway-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/indian-railway/abstractIndian-railwayConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="PNR" caption="P N R" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Find Station" icon="icons/theme.classic/indian-railway-connector-small.png" localId="find-station" image="icons/theme.classic/indian-railway-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/indian-railway/abstractIndian-railwayConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="station" caption="Station" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Greet" icon="icons/theme.classic/indian-railway-connector-small.png" localId="greet" image="icons/theme.classic/indian-railway-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/indian-railway/abstractIndian-railwayConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="friend" caption="Friend" description="Name to be used to generate a greeting message." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

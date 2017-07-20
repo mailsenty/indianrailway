@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(indian-railway:greet) -->
+    <indian-railway:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(indian-railway:greet) -->
